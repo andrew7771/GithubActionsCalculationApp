@@ -25,9 +25,6 @@ jobs:
       with:
         dotnet-version: '5.x'
 
-    - name: Restore dependencies
-      run: dotnet restore
-
     - name: Build the application
       run: dotnet build --configuration Release
 
