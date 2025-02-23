@@ -5,11 +5,11 @@ on:
     inputs:
       num1:
         description: 'First number'
-        required: true
+        required: false
         type: number
       num2:
         description: 'Second number'
-        required: true
+        required: false
         type: number
 
 jobs:
