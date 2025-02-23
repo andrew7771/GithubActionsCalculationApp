@@ -6,11 +6,11 @@ on:
       num1:
         description: 'First number'
         required: true
-        type: integer
+        type: number
       num2:
         description: 'Second number'
         required: true
-        type: integer
+        type: number
 
 jobs:
   run_calculation:
