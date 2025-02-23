@@ -1,0 +1,35 @@
+name: Run Calculation Action
+
+on:
+  workflow_dispatch:
+    inputs:
+      num1:
+        description: 'First number'
+        required: true
+        type: integer
+      num2:
+        description: 'Second number'
+        required: true
+        type: integer
+
+jobs:
+  run_calculation:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '5.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build the application
+      run: dotnet build --configuration Release
+
+    - name: Run the application with arguments
+      run: dotnet run --project ./GithubActionsCalculationApp/GithubActionsCalculationApp.csproj ${{ github.event.inputs.num1 }} ${{ github.event.inputs.num2 }}
